@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}Home{% endblock %}
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>蔵書管理データベース</h1>
+    {% endblock %}
+
+    <table>
+        <tr class = 'keyname'>
+            <th>書名</th><th>著者</th><th>分野</th>
+        </tr>
+        {% for book in books %}
+            <tr class = 'list'>
+                <td>{{book['title']}}</td>
+                <td>{{book['author']}}</td>
+                <td>{{book['genre']}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
