@@ -11,13 +11,15 @@ def create_app():
     app.register_blueprint(books.bp)
     app.register_blueprint(authors.bp)
 
-    app.config.form_mapping(
+    from . import bookdb
+    bookdb.init_app(app)
+
+    app.config.from_mapping(
         SECRET_KEY='temp',
         DATABASE=os.path.join(app.instance_path,'bookdb.sqlite3')
     )
 
-    from . import bookdb
-    bookdb.init_app(app)
+    return app
 
     @app.route('/test')
     

@@ -2,7 +2,7 @@ from flask import (
     Blueprint, render_template,request,redirect,url_for
 )
 
-from web.db import get_db
+from web.bookdb import get_db
 
 bp = Blueprint('books', __name__)
 @bp.route('/',methods=('GET','POST'))
